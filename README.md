@@ -1,4 +1,6 @@
-# Analisador de Senhas
+# Analisador de Senhas (v1)
+
+> Versão 1, desenvolvida no início dos meus estudos em Python. As melhorias estão planejadas para as próximas versões (veja o roadmap).
 
 Script em Python que avalia a força de uma senha por regras simples e explica o motivo de cada penalidade. Faz parte dos meus estudos de segurança defensiva: entender o que torna uma credencial fraca é o primeiro passo para impedir que ela seja usada.
 
@@ -44,7 +46,7 @@ Resultados de alguns testes:
 
 ## Limitações conhecidas
 
-Este é um avaliador baseado em regras, e as regras têm pontos cegos que documentei de propósito:
+Esta primeira versão é um avaliador baseado em regras, e as regras têm pontos cegos que documentei de propósito e que guiam as próximas versões:
 
 1. **Não consulta senhas comuns.** `Senha123!` e `Password1!` recebem 3 pontos e são classificadas como fortes, embora estejam entre os padrões mais previsíveis. Cumprir as regras de composição não significa que a senha seja difícil de adivinhar.
 2. **O tamanho não escala a pontuação.** Uma frase longa como `correto cavalo bateria grampo` recebe -3 (fraca) por não ter número, maiúscula nem símbolo, apesar de ser bem mais difícil de quebrar que `Xk9#mP2$vL`.
@@ -52,7 +54,7 @@ Este é um avaliador baseado em regras, e as regras têm pontos cegos que docume
 4. **A regra de repetição é rígida.** Qualquer par de caracteres iguais seguidos (como o `ss` de `Password`) já penaliza.
 5. **Conjunto fixo de símbolos.** Só os caracteres listados na tabela contam como símbolo.
 
-## Próximos passos
+## Roadmap (próximas versões)
 
 - Comparar a senha com uma lista de senhas vazadas ou comuns antes de classificar.
 - Trocar a pontuação fixa por uma estimativa de entropia, de modo que o comprimento pese mais.
